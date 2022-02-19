@@ -20,8 +20,8 @@ INSERT INTO Info (
 	)
 VALUES 
 	(10, 101, 'Maria Bienev', 'Shopping_Cart_Attendant', 'PT'),
-    (10, 102, 'John Sullivan', 'Bagger','FT'),
-    (10, 103, 'Samantha Cruz', 'Cashier', 'FT'),
+        (10, 102, 'John Sullivan', 'Bagger','FT'),
+        (10, 103, 'Samantha Cruz', 'Cashier', 'FT'),
 	(10, 104, 'Peter Vernik', 'Custodian', 'FT'),
 	(10, 105, 'Diego Rodriguez', 'Cashier', 'FT'),
 	(10, 106, 'Emmanuel Jones', 'Shopping_Cart_Attendant', 'FT'),
@@ -55,7 +55,7 @@ INSERT INTO Records (
 	Date_Recorded
 	)
 VALUES 
-    (10, 101, 'No', '21-09-12'),
+        (10, 101, 'No', '21-09-12'),
 	(10, 102, 'No', '21-09-12'),
 	(10, 103, 'No', '21-09-12'),
 	(10, 104, 'No', '21-09-12'),
@@ -87,7 +87,7 @@ INSERT INTO Suspension (
 	Suspended_Prior
 	)
 VALUES 
-    (101, 'Yes'),
+        (101, 'Yes'),
 	(102, 'No'),
 	(103, 'No'),
 	(104, 'No'),
@@ -119,7 +119,7 @@ INSERT INTO Emp_Salary (
 	Salary
 	)
 VALUES 
-    (201, 41400),
+        (201, 41400),
 	(202, 33600),
 	(203, 45700),
 	(204, 29500),
@@ -136,6 +136,7 @@ FROM Emp_Salary;
 The HR team is interested in calculating 'No Show' rate within the company.
 They would like Analytics team to help them calculate 'No Show' rate for the employees who have had no prior history of no-shows.
 Write a query to determine the employees' 'No Show' rate.
+
 In order to calculate the rate, we, first, need to join Records and Suspension tables.
 Then we count all records with 'Yes' value in No_Show column from the Records table for the employees who have no history of prior suspension.
 After that, we divide the result by the count of employees who have not been suspended before;
@@ -179,11 +180,11 @@ Date Reported			New No Show Rate
 */
 
 /* Task 2. 
-The HR team would like Analytics to help them to pivot Info table in MySQL.
-The HR department needs all employess whose Department Manager Id is 10 to be sorted by the positions they hold.
+The HR department would like all employess whose Department Manager Id is 10 to be sorted by the positions they hold.
 In other words, we need to pivot Info table in MySQl.
+
 We start by calculating the distinct positions.
-We set the variables that will help us to assign a number to each position (the logic here is similar to when we use the row_number()).
+We set the variables that will help us to assign a number to each position (the logic here is similar to using row_number()).
 We use CASE in order to query the names of the employees.
 CASE helps us to create a column for each position. The labels are:
 Shopping_Cart_Attendant,
@@ -191,7 +192,7 @@ Bagger,
 Cashier, 
 Floral_Assistant,
 Custodian.
-We order the pivoted table by employee name, so it'll be convenient to navigate the table, especially, if it grows bigger.
+We order the pivoted table by employee name, so it'll be convenient to navigate through the table, especially, if it grows bigger.
 */
 
 SELECT COUNT(DISTINCT Job_Title) AS Counted
@@ -199,16 +200,16 @@ FROM Info
 WHERE Dept_Manager_Id = 10;
 
 SET @y1 = 0,
-	@y2 = 0,
-	@y3 = 0,
-	@y4 = 0,
-	@y5 = 0;
+    @y2 = 0,
+    @y3 = 0,
+    @y4 = 0,
+    @y5 = 0;
 
 SELECT MIN(Shopping_Cart_Attendant) AS Shopping_Cart_Attendant,
-	 MIN(Bagger) AS Bagger,
-	 MIN(Cashier) AS Cashier,
-	 MIN(Floral_Assistant) AS Floral_Assistant,
-	 MIN(Custodian) AS Custodian
+       MIN(Bagger) AS Bagger,
+       MIN(Cashier) AS Cashier,
+       MIN(Floral_Assistant) AS Floral_Assistant,
+       MIN(Custodian) AS Custodian
 FROM (
 	SELECT CASE 
 			WHEN Job_title = 'Shopping_Cart_Attendant'
@@ -248,15 +249,15 @@ FROM (
 GROUP BY NumberAssigned;
 
 /* Output:
-Shopping_Cart_Attendant			Bagger					Cashier					Floral_Assistant		Custodian
-Emmanuel Jones					John Sullivan			Diego Rodriguez			Patrick Cabrero			Martha Hilton
-Maria Bienev											Penelope High									Peter Vernik
-														Samantha Cruz
+Shopping_Cart_Attendant			Bagger				Cashier				Floral_Assistant		Custodian
+Emmanuel Jones				John Sullivan			Diego Rodriguez			Patrick Cabrero			Martha Hilton
+Maria Bienev								Penelope High							Peter Vernik
+									Samantha Cruz
 */
 
 /* Task3. 
 The HR team continues conducting their research.
-This time they are interested in finding median salary within a department.
+This time they are interested in finding median salary within a certain manager's department.
 They specify that they would like to query the median salary data for the department where the Manager's Id is 20.
 They also know that the number of employees is odd in that team, 
 and prefer to have the information about the person who is paid the median salary.
@@ -269,7 +270,7 @@ and Employment Type.
 The query listed below achieves the HR's goal.
 It is built based on the logic that we can have either even or odd number of employees.
 We assign two variables: 
-@Total_Count for the count of employees of interest, and @t variable will rank the employees based on their Salary value.
+@Total_Count to the count the employees, and @t variable to rank the employees based on their Salary value.
 CASE helps to get the median salary depending on whether we have even or odd number of employees in the department. 
 */
 
@@ -310,7 +311,7 @@ WHERE Salary = 33900;
 
 /* Output:
 Emp_Id			Salary
-205				33900
+205			33900
 */
 
 /* Emp_Id = 205. 
@@ -331,6 +332,6 @@ SELECT *
 FROM Median_Data;
 
 /* Output:
-Dept_Manager_Id			Emp_Id			Job_Title								Employment_Type
-20						205				Customer_Service_Representative			FT
+Dept_Manager_Id			Emp_Id			Job_Title					Employment_Type
+20				205			Customer_Service_Representative			FT
 */
