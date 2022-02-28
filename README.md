@@ -11,7 +11,7 @@ I find it particularly interesting to manipulate data which I extract from a var
 
 We create a complex SQL report on First Time No-Show Employee Rate utilizing CASE expression and CTE across multiple tables through repurposing aggregate functions for counting successful logical test runs.
 
-We converte Employee Occupational Records into a form suitable for a report with the help of user-defined variables embedded into conditional statements.
+We convert Employee Occupational Records into a form suitable for a report with the help of user-defined variables embedded into conditional statements.
 
 Last, we calculate a statistical parameter within a department applying mathematical MySQL functions in conjunction with session variables.
 
