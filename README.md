@@ -1,3 +1,7 @@
+<img
+  align="right"
+  src="logo.jpg"
+  style="width: 250px; height: 200px"> 
 # Mutiple-Tables
 
 Writing tangled SQL queries is among my favorite work challenges 😊. I love pondering on how to improve my queries and pushing myself into looking for new solutions 🙋.
