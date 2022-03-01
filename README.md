@@ -4,8 +4,8 @@
   style="width: 250px; height: 200px"> 
 # Mutiple-Tables
 
-Writing tangled SQL queries is among my favorite work challenges 😊. I love pondering on how to improve my queries and pushing myself into looking for new solutions 🙋.
-I find it particularly interesting to manipulate data which I extract from a variety of tables. This project is an example of what I often do when I am working with multiple tables.
+Writing meticulous SQL queries is among my favorite work challenges 😊. I love pondering on how to improve my queries and pushing myself into looking for new solutions 🙋.
+I find it particularly interesting to manipulate the data which I extract from a variety of tables. This project is an example of what I often do when I am working with multiple tables.
 
 ## So what do we do in this project ❓
 
@@ -15,11 +15,11 @@ We convert Employee Occupational Records into a form suitable for a report with 
 
 Last, we calculate a statistical parameter within a department applying mathematical MySQL functions in conjunction with session variables.
 
-## Project directory 👇
+## Project content 👇
 
-All tables, queries, and outputs are stored in Multiple tables.sql file. I have also included detailed explanations of the logic behind the queries. 
+All tables, queries, and outputs are stored in the Multiple tables.sql file. I have also included detailed explanations of the logic behind the queries. 
 
-The screenshots of the tables with the inserted values into them in MySQL Workbench are available in Tables Screenshots folder.
+The screenshots of the tables in MySQL Workbench are placed in the Tables Screenshots folder.
 
 Authors
 
